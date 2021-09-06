@@ -1,0 +1,112 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModel = "clr-namespace:WpfApp1.MVVM.ViewModel"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Height="555" Width="920"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True"
+        Title="Name">
+    <Window.DataContext>
+        <viewModel:MainViewModel/>
+    </Window.DataContext>
+    <Border 
+        Background="#272537"
+        CornerRadius="20">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200 "/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Pomodoro"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left"
+                       Foreground="White"
+                       FontSize="22"
+                       Margin="20,0,0,0"/>
+
+            <StackPanel Grid.Row="1">
+                <RadioButton Content="Home"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"
+                             IsChecked="True"
+                             Command="{Binding HomeViewCommand}"
+                             />
+                <RadioButton Content="Timer"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding TimerViewCommand}"
+                             />
+                <RadioButton Content="Break"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"
+                             />
+                <RadioButton Content="Choose Options"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"
+                             />
+
+
+
+            </StackPanel>
+
+            <ContentControl
+                                Grid.Column="1"
+                                Margin="10,59,10,36"
+                                Content="{Binding CurrentView}" Grid.RowSpan="2"/>
+
+        </Grid>
+
+    </Border>
+
+    <!--<Grid
+        Margin="10"
+                Grid.Row="1">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="1">Pomodoro Timer</Label>
+        <ListBox Grid.Row="1" x:Name="lstNames" />
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Margin="5,0,0,0">
+            <TextBox x:Name="txtName" />
+            <Button x:Name="btnAdd"  Margin="0,5,0,0" Click="Add5">Add 5:00 Mins</Button>
+            <Button x:Name="btnAdd1" Margin="0,5,0,0" Click="Add10">Add 10:00 Mins</Button>
+            <Button x:Name="btnAdd2" Margin="0,5,0,0" Click="Add15">Add 15:00 Mins</Button>
+            <Button x:Name="btnAdd3" Margin="0,5,0,0" Click="Add15">Add Custom Time</Button>
+            <Button x:Name="btnAdd4" Margin="0,5,0,0" Click="AddBreak">Add a Break</Button>
+
+            <Button Grid.Row="2" x:Name="back" Margin="0,50,0,0" Click="Back">Go Back</Button>
+
+
+
+        </StackPanel>
+    </Grid>-->
+</Window>
